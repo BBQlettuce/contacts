@@ -9,5 +9,4 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :index, :show, :update]
     resources :contacts, only: :index
   end
-  
 end
