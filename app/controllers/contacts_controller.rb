@@ -12,13 +12,13 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    Contact.find(params[:id]).destroy
+    contact = Contact.find(params[:id]).destroy
 
-    render json: Contact.all
+    render json: contact
   end
 
   def index
-    render json: Contact.all
+    render json: Contact.where(user_id: params[:user_id])
   end
 
   def show
