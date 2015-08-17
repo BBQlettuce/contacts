@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :destroy, :index, :show, :update] do
     resources :comments, only: [:create, :destroy, :index, :show, :update]
-    resources :contacts, only: :index
+    resources :contacts, only: :index do
+      get 'favorites', on: :collection
+    end
   end
 end

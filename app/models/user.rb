@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     source: :contact
 
   has_many :comments, as: :commentable
+
+  def favorite_contacts
+    contacts.where(favorite: true) + shared_contacts.where(favorite: true)
+  end
 end
